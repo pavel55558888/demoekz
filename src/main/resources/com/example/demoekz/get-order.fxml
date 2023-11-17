@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="583.0" prefWidth="678.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demoekz.controllers.HystoriController">
+   <children>
+      <TableView fx:id="tableview" prefHeight="543.0" prefWidth="678.0">
+        <columns>
+          <TableColumn fx:id="id" prefWidth="75.0" text="id" />
+          <TableColumn fx:id="kod" prefWidth="75.0" text="kod" />
+            <TableColumn fx:id="date" prefWidth="75.0" text="date" />
+            <TableColumn fx:id="time" prefWidth="75.0" text="time" />
+            <TableColumn fx:id="kod_user" prefWidth="75.0" text="kod_user" />
+            <TableColumn fx:id="services" prefWidth="75.0" text="services" />
+            <TableColumn fx:id="status" prefWidth="75.0" text="status" />
+            <TableColumn fx:id="date_close" prefWidth="75.0" text="date_close" />
+            <TableColumn fx:id="time_drive" prefWidth="75.0" text="time_drive" />
+        </columns>
+      </TableView>
+      <Button fx:id="btn_back" layoutX="612.0" layoutY="550.0" mnemonicParsing="false" text="Назад">
+         <font>
+            <Font name="Comic Sans MS" size="12.0" />
+         </font></Button>
+   </children>
+</AnchorPane>

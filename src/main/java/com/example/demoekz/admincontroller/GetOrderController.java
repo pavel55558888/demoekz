@@ -17,7 +17,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-public class AdminController {
+public class GetOrderController {
 
     @FXML
     private ResourceBundle resources;
@@ -69,8 +69,6 @@ public class AdminController {
         while (order.next()){
             usersData.add(new Order(order.getInt(1),order.getString(2),order.getString(3),order.getString(4),order.getString(5),
                        order.getString(6),order.getString(7),order.getString(8),order.getString(9)));
-            System.out.println(order.getInt(1) + order.getString(2) + order.getString(3) +order.getString(4)+order.getString(5)+
-                    order.getString(6)+order.getString(7)+order.getString(8)+order.getString(9));
            }
 
         id.setCellValueFactory(new PropertyValueFactory<Order, Integer>("id"));
@@ -87,7 +85,7 @@ public class AdminController {
 
         btn_back.setOnAction(actionEvent -> {
             try {
-                HelloApplication.setScenStart(actionEvent);
+                HelloApplication.setScenAdmin(actionEvent);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

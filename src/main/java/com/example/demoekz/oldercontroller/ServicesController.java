@@ -10,10 +10,8 @@ import com.example.demoekz.database.DataBase;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
 
-
-public class ShoperController {
+public class ServicesController {
 
     @FXML
     private ResourceBundle resources;
@@ -28,65 +26,42 @@ public class ShoperController {
     private Button but;
 
     @FXML
-    private TextField date;
+    private TextField date_order;
 
     @FXML
-    private TextField date_close;
-
-    @FXML
-    private ImageView img;
-
-    @FXML
-    private TextField kod;
+    private TextField kod_services;
 
     @FXML
     private TextField kod_user;
 
     @FXML
-    private TextField services;
-
-    @FXML
-    private TextField time;
-
-    @FXML
-    private TextField time_close;
+    private Button add_user;
 
     private DataBase db = new DataBase();
 
     @FXML
     void initialize() {
-
         back.setOnAction(actionEvent -> {
             try {
-                HelloApplication.setScenStart(actionEvent);
+                HelloApplication.setScenOld(actionEvent);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         });
-
         but.setOnAction(actionEvent -> {
+            String kodUser = kod_user.getText();
+            String date = date_order.getText();
+            String kodServices = kod_services.getText();
+
             try {
-                goOrder();
+                db.setServices(kodUser,date,kodServices);
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             } catch (ClassNotFoundException e) {
                 throw new RuntimeException(e);
             }
         });
-        
-    }
 
-
-    private void goOrder() throws SQLException, ClassNotFoundException {
-        String kod = this.kod.getText();
-        String date = this.date.getText();
-        String time = this.time.getText();
-        String kod_user = this.kod_user.getText();
-        String services = this.services.getText();
-        String date_close = this.date_close.getText();
-        String time_close = this.time_close.getText();
-
-        db.setOrder(kod,date,time,kod_user,services,date_close,time_close);
     }
 
 }
