@@ -1,5 +1,6 @@
 package com.example.demoekz;
 
+import com.example.demoekz.database.DataBase;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -9,6 +10,7 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.EventObject;
 
 public class HelloApplication extends Application {
@@ -26,6 +28,17 @@ public class HelloApplication extends Application {
         launch();
     }
 
+    @Override
+    public void stop() throws SQLException, ClassNotFoundException {
+        try {
+            DataBase db = new DataBase();
+            db.deleteTable();
+        }catch (Exception ex){
+            System.out.println("Таблица не найдена #catch");
+        }
+
+    }
+
     public static void scen(Stage stage,String fxml,int size1,int size2,String name) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(fxml));
         Scene scene = new Scene(fxmlLoader.load(), size1, size2);
@@ -36,7 +49,7 @@ public class HelloApplication extends Application {
 
     public static void setScenStart(ActionEvent event) throws IOException {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        HelloApplication.scen(stage,"hello-view",600,400,"Авторизация");
+        HelloApplication.scen(stage,"hello-view.fxml",600,400,"Авторизация");
 
     }
     public static void setScenShoper(ActionEvent event) throws IOException {
@@ -52,9 +65,36 @@ public class HelloApplication extends Application {
         HelloApplication.scen(stage,"old.fxml",600,230,"Старшый смены");
     }
 
+    public static void setScenGetOrder(ActionEvent event) throws IOException {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        HelloApplication.scen(stage,"get-order.fxml",877,623,"Просмотр заказов");
+    }
     public static void setScenAdmin(ActionEvent event) throws IOException {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        HelloApplication.scen(stage,"admin.fxml",680,585,"Администратор");
+        HelloApplication.scen(stage,"admin.fxml",505,240,"Администратор");
+    }
+
+    public static void setScenHystori(ActionEvent event) throws IOException {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        HelloApplication.scen(stage,"hystori.fxml",480,400,"История входа");
+    }
+
+    public static void setScenAddUser(ActionEvent event) throws IOException {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        HelloApplication.scen(stage,"add-user.fxml",440,330,"Добавление нового пользователя");
+    }
+    public static void setScenNewOtchet(ActionEvent event) throws IOException {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        HelloApplication.scen(stage,"newotchet.fxml",235,280,"Добавление нового отчета");
+    }
+
+    public static void setScenConsumables(ActionEvent event) throws IOException {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        HelloApplication.scen(stage,"consumables.fxml",365,230,"Отчет");
+    }
+    public static void setScenMenuShoper(ActionEvent event) throws IOException {
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        HelloApplication.scen(stage,"menu-shopper.fxml",440,220,"Продавец");
     }
 
 }

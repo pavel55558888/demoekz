@@ -1,4 +1,4 @@
-package com.example.demoekz.controllers;
+package com.example.demoekz.shopercontroller;
 
 import java.io.IOException;
 import java.net.URL;
@@ -61,7 +61,7 @@ public class AddUserController {
     void initialize() {
         back.setOnAction(actionEvent -> {
             try {
-                HelloApplication.setScenShoper(actionEvent);
+                HelloApplication.setScenMenuShoper(actionEvent);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

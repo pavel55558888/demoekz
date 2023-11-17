@@ -1,4 +1,4 @@
-package com.example.demoekz.controllers;
+package com.example.demoekz.hellocontroller;
 
 import java.io.IOException;
 import java.net.URL;
@@ -48,6 +48,8 @@ public class HelloController {
 
     @FXML
     void initialize() {
+        db.getServerInfo();
+
         int number = (int) ((Math.random() * ((1111 + 9999) + 1)) + 1111);
         String str = String.valueOf(number);
         capcha_lbl.setText(String.valueOf(number));
@@ -68,11 +70,12 @@ public class HelloController {
                             try {
 
                                 if (db.role(login.getText(), pass.getText()).equals("Продавец")) {
-                                    HelloApplication.setScenShoper(actionEvent);
+                                    HelloApplication.setScenMenuShoper(actionEvent);
                                 } else if (db.role(login.getText(), pass.getText()).equals("Старший смены")) {
                                     HelloApplication.setScenOld(actionEvent);
                                 } else if (db.role(login.getText(), pass.getText()).equals("Администратор")) {
                                     HelloApplication.setScenAdmin(actionEvent);
+                                    db.createTable();
                                 }
 
                             } catch (IOException e) {

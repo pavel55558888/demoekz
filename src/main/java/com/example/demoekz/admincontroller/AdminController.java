@@ -1,10 +1,12 @@
-package com.example.demoekz.controllers;
+package com.example.demoekz.admincontroller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import com.example.demoekz.HelloApplication;
+import com.example.demoekz.database.DataBase;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
@@ -36,7 +38,8 @@ public class AdminController {
     private Button rashod;
 
     @FXML
-    void initialize() {
+    void initialize() throws SQLException, ClassNotFoundException {
+
         back.setOnAction(actionEvent -> {
             try {
                 HelloApplication.setScenStart(actionEvent);
@@ -60,6 +63,23 @@ public class AdminController {
                 throw new RuntimeException(e);
             }
         });
+
+        otchet.setOnAction(actionEvent -> {
+            try {
+                HelloApplication.setScenNewOtchet(actionEvent);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+
+        rashod.setOnAction(actionEvent -> {
+            try {
+                HelloApplication.setScenConsumables(actionEvent);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+
 
     }
 

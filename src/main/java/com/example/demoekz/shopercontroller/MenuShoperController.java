@@ -1,18 +1,14 @@
-package com.example.demoekz.oldercontroller;
+package com.example.demoekz.shopercontroller;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import com.example.demoekz.HelloApplication;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
-import javafx.scene.image.ImageView;
-import javafx.stage.Stage;
 
-public class OldController {
+public class MenuShoperController {
 
     @FXML
     private ResourceBundle resources;
@@ -21,38 +17,33 @@ public class OldController {
     private URL location;
 
     @FXML
-    private Button but1;
-
-    @FXML
-    private Button but2;
-
-    @FXML
     private Button back;
 
     @FXML
-    private ImageView img;
+    private Button new_user;
+
+    @FXML
+    private Button new_zakaz;
 
     @FXML
     void initialize() {
-        but1.setOnAction(actionEvent -> {
+        new_zakaz.setOnAction(actionEvent -> {
             try {
                 HelloApplication.setScenShoper(actionEvent);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         });
-
-        but2.setOnAction(actionEvent -> {
+        back.setOnAction(actionEvent -> {
             try {
-                HelloApplication.setScenServices(actionEvent);
+                HelloApplication.setScenStart(actionEvent);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         });
-
-        back.setOnAction(actionEvent -> {
+        new_user.setOnAction(actionEvent -> {
             try {
-                HelloApplication.setScenStart(actionEvent);
+                HelloApplication.setScenAddUser(actionEvent);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

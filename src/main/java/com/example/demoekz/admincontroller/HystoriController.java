@@ -1,4 +1,4 @@
-package com.example.demoekz.controllers;
+package com.example.demoekz.admincontroller;
 
 import java.io.IOException;
 import java.net.URL;

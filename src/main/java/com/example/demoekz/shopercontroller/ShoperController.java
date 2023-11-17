@@ -1,4 +1,4 @@
-package com.example.demoekz.controllers;
+package com.example.demoekz.shopercontroller;
 
 import java.io.IOException;
 import java.net.URL;
@@ -26,9 +26,6 @@ public class ShoperController {
 
     @FXML
     private Button but;
-
-    @FXML
-    private Button add_user;
 
     @FXML
     private TextField date;
@@ -73,14 +70,6 @@ public class ShoperController {
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             } catch (ClassNotFoundException e) {
-                throw new RuntimeException(e);
-            }
-        });
-
-        add_user.setOnAction(actionEvent -> {
-            try {
-                HelloApplication.setScenAddUser(actionEvent);
-            } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         });
